@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saima Ifrahim Welfare Foundation</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(to bottom right, #e3f2fd, #fff);
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #005f73, #0a9396, #94d2bd);
+            color: white;
+            padding: 10px 0;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            height: 70px;
+        }
+
+        .nav-container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-container img {
+            width: 70px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.4s;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            left: 0;
+            bottom: -5px;
+            background: #ffd166;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            padding-top: 130px;
+            /* lowered text for visibility */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+                url('https://i.ytimg.com/vi/sr3VZxAh6w4/maxresdefault.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* keeps content lower */
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 3em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(90deg, #ffd166, #fcbf49);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            margin-top: 10px;
+            max-width: 700px;
+            color: #f1f5f9;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 10px 25px;
+            border: none;
+            background: linear-gradient(90deg, #ffd166, #f77f00);
+            color: #003049;
+            font-weight: 600;
+            border-radius: 35px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #ffca3a, #ff595e);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 10%;
+            text-align: center;
+            scroll-margin-top: 90px;
+        }
+
+        section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: #003049;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9f1c, #ffbf69);
+            border-radius: 5px;
+        }
+
+        section p {
+            max-width: 900px;
+            margin: auto;
+            font-size: 1.05em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* PROGRAM CARDS */
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            color: #005f73;
+            padding: 15px;
+            font-weight: 700;
+        }
+
+        .card p {
+            padding: 0 15px 20px;
+            color: #444;
+        }
+
+        /* DONATION */
+        .donation {
+            background: linear-gradient(135deg, #00b4d8, #48cae4, #90e0ef);
+            color: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-top: 60px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .donation h3 {
+            font-size: 1.4em;
+            margin-top: 15px;
+        }
+
+        .donation p {
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #edf2fb, #e2eafc);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact a {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(90deg, #003049, #002233);
+            color: #fff;
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 0.9em;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.5em;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd166;
+            transform: scale(1.2);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: 65px;
+                padding: 8px 0;
+            }
+
+            .nav-container img {
+                width: 55px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 0.9em;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <img src="D:\logo.png" alt="SIWF Logo">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#donation">Donate</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Saima Ifrahim Welfare Foundation</h1>
+        <p>Empowering communities through education, compassion, and social upliftment since 2023.</p>
+        <button onclick="document.getElementById('donation').scrollIntoView({behavior:'smooth'})">Donate Now</button>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            The Saima Ifrahim Welfare Foundation (SIWF) is a non-profit organization founded in August 2023.
+            We are driven by a mission to transform lives through education, women empowerment, livelihood
+            opportunities, and healthcare assistance. Our goal is to nurture skills, confidence, and compassion
+            within every individual we serve.
+        </p>
+    </section>
+
+    <section id="programs">
+        <h2>Our Programs</h2>
+        <div class="programs">
+            <div class="card">
+                <img src="https://pennyappeal.org/storage/app/media/news/2020-articles/putting-education-first-in-pakistan/pk-ef-3.jpg"
+                    alt="Education">
+                <h3>Education for All</h3>
+                <p>Providing free education and essential learning tools to children from underprivileged families.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://borgenproject.org/wp-content/uploads/Vocational-Training-Centers-in-Pakistan.jpg"
+                    alt="Women Empowerment">
+                <h3>Women Empowerment</h3>
+                <p>Offering skill-based training and small business opportunities for women’s economic independence.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn1.internationalmedicalcorps.org/wp-content/uploads/2024/01/PAKISTAN_Panian-II-1024x768.webp"
+                    alt="Healthcare">
+                <h3>Healthcare Support</h3>
+                <p>Conducting free medical camps and awareness programs for better community health and wellbeing.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://www.globalgiving.org/pfil/62434/pict_large.jpg" alt="Community Welfare">
+                <h3>Community Welfare</h3>
+                <p>Distributing rations, shoes, and daily essentials to widows, orphans, and families in need.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="donation" class="donation">
+        <h2>Online Donation</h2>
+        <h3>MCB Islamic Bank</h3>
+        <p>
+            Title: SAIMA IFRAHIM WELFARE FOUNDATION<br>
+            A/C: 1151005190710001<br>
+            IBAN: PK89 MCIB 1151005190710001
+        </p>
+        <h3>Bank Al-Habib Limited</h3>
+        <p>
+            Title: SAIMA IFRAHIM WELFARE FOUNDATION<br>
+            A/C: 5518008101070001<br>
+            IBAN: PK27 BAHL 5518008101070001
+        </p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p><strong>Phone:</strong> 0333-4324225 / 051-2618347 / 0344-5514786</p>
+        <p><strong>Email:</strong> <a href="mailto:siwelfarefoundation@gmail.com">siwelfarefoundation@gmail.com</a></p>
+        <p><strong>Head Office:</strong> Flat # 4, 1st Floor, Sarwar Plaza, Sadiqabad Chowk, Rawalpindi</p>
+        <p><strong>Islamabad Branch:</strong> Al-Huda Town, Lehtrar Road, Islamabad</p>
+    </section>
+
+    <footer>
+        <p>Serving Since 2023 | Saima Ifrahim Welfare Foundation</p>
+        <p>Head Office: Flat # 4, 1st Floor, Sarwar Plaza, Sadiqabad Chowk, Rawalpindi</p>
+        <p>Islamabad Branch: Al-Huda Town, Lehtrar Road, Islamabad</p>
+        <p>For Details: 0333-4324225, 0344-5514786, 051-2618347 | Email: siwelfarefoundation@gmail.com</p>
+
+        <div class="social-links">
+            <a href="https://www.youtube.com/@siwelfarefoundation" target="_blank" title="YouTube"><i
+                    class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61556712217214&mibextid=ZbWKwL" target="_blank"
+                title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/siwelfarefoundation/" target="_blank" title="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@siwelfarefoundation" target="_blank" title="TikTok"><i
+                    class="fab fa-tiktok"></i></a>
+        </div>
+
+        <p>&copy; 2023 Saima Ifrahim Welfare Foundation. All rights reserved.</p>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923334324225" target="_blank" class="whatsapp-button" title="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+            style="width:30px;height:30px;">
+    </a>
+
+</body>
+
+</html>
